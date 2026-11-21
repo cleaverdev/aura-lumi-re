@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cosmic palette - deep night blue mystical theme */
+    --background: 225 45% 6%;
+    --foreground: 210 30% 95%;
+
+    --card: 222 40% 12%;
+    --card-foreground: 210 30% 95%;
+
+    --popover: 222 40% 12%;
+    --popover-foreground: 210 30% 95%;
+
+    --primary: 210 70% 65%;
+    --primary-foreground: 225 45% 6%;
+
+    --secondary: 220 50% 40%;
+    --secondary-foreground: 210 30% 95%;
+
+    --muted: 222 35% 20%;
+    --muted-foreground: 215 25% 65%;
+
+    --accent: 200 80% 75%;
+    --accent-foreground: 225 45% 6%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 35% 25%;
+    --input: 222 35% 20%;
+    --ring: 210 70% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom cosmic colors - night blue mystical palette */
+    --cosmic-deep: 225 50% 5%;
+    --cosmic-navy: 222 45% 10%;
+    --cosmic-indigo: 225 55% 30%;
+    --cosmic-light-blue: 200 80% 75%;
+    --cosmic-gold: 210 70% 70%;
+    --cosmic-gold-light: 200 65% 80%;
+    --cosmic-purple: 220 60% 45%;
+    --cosmic-star: 210 40% 95%;
+    --cosmic-moon: 210 60% 85%;
+    --cosmic-glow: 215 70% 55%;
+
+    --sidebar-background: 225 45% 8%;
+    --sidebar-foreground: 210 30% 95%;
+    --sidebar-primary: 210 70% 65%;
+    --sidebar-primary-foreground: 225 45% 6%;
+    --sidebar-accent: 222 40% 15%;
+    --sidebar-accent-foreground: 210 30% 95%;
+    --sidebar-border: 220 35% 25%;
+    --sidebar-ring: 210 70% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(to right, hsl(210 70% 70%), hsl(200 65% 80%), hsl(210 70% 70%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-moon {
+    background: linear-gradient(to bottom, hsl(210 60% 85%), hsl(200 65% 80%), hsl(210 60% 85%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-cosmic-gradient {
+    background: linear-gradient(180deg, 
+      hsl(var(--cosmic-deep)) 0%, 
+      hsl(255 40% 15%) 30%,
+      hsl(260 45% 20%) 50%,
+      hsl(255 40% 15%) 70%,
+      hsl(var(--cosmic-deep)) 100%
+    );
+  }
+
+  .bg-cosmic-radial {
+    background: radial-gradient(ellipse at center top, 
+      hsl(220 50% 20%) 0%, 
+      hsl(222 45% 10%) 40%,
+      hsl(var(--cosmic-deep)) 80%
+    );
+  }
+
+  .bg-cosmic-hero {
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% 40%, 
+        hsl(215 55% 30% / 0.5) 0%, 
+        transparent 60%
+      ),
+      linear-gradient(180deg, 
+        hsl(var(--cosmic-deep)) 0%, 
+        hsl(222 50% 14%) 40%,
+        hsl(220 55% 18%) 60%,
+        hsl(222 50% 14%) 80%,
+        hsl(var(--cosmic-deep)) 100%
+      );
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 40px hsl(var(--cosmic-gold) / 0.4),
+                0 0 80px hsl(var(--cosmic-purple) / 0.2);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 30px hsl(var(--cosmic-light-blue) / 0.3),
+                0 0 60px hsl(var(--cosmic-indigo) / 0.2);
+  }
+
+  .glow-moon {
+    box-shadow: 0 0 60px hsl(var(--cosmic-moon) / 0.6),
+                0 0 120px hsl(var(--cosmic-purple) / 0.4),
+                0 0 180px hsl(var(--cosmic-glow) / 0.2);
+  }
+
+  .star-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  @keyframes cloud-drift {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-twinkle {
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  .animate-cloud-drift {
+    animation: cloud-drift 8s ease-in-out infinite;
+  }
+}
