@@ -77,12 +77,12 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             <a
-              href="https://beselfweb.com"
+              href="https://visionare.fr"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-cosmic-gold transition-colors w-fit"
             >
-              Made By Agence BeSelf
+              Made By Visionare
             </a>
           </p>
         </div>
